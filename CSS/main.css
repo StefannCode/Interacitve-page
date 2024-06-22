@@ -1,0 +1,51 @@
+body {
+  background-color: black;
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  color: white;
+}
+
+.main {
+  width: 412px;
+  height: 416px;
+  background-color: #181e27;
+  border-radius: 30px;
+}
+
+.circle {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  background-color: #262e38;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text1 {
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.text2 {
+  width: 340px;
+  height: 72px;
+}
+
+.buttonelement {
+  background-color: #262e38;
+  color: #969fad;
+  height: 51px;
+  width: 51px;
+  border-radius: 50%;
+  border: none;
+}
