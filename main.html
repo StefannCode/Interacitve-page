@@ -26,16 +26,20 @@
           </p>
         </div>
         <div class="rating-count">
-          <button class="buttonelement">1</button>
-          <button class="buttonelement">2</button>
-          <button class="buttonelement">3</button>
-          <button class="buttonelement">4</button>
-          <button class="buttonelement">5</button>
+          <button class="buttonelement" onclick="rating(event, 1)">1</button>
+          <button class="buttonelement" onclick="rating(event, 2)">2</button>
+          <button class="buttonelement" onclick="rating(event, 3)">3</button>
+          <button class="buttonelement" onclick="rating(event, 4)">4</button>
+          <button class="buttonelement" onclick="rating(event, 5)">5</button>
         </div>
         <div class="forSubmit">
-          <button class="submitButton">SUBMIT</button>
+          <button class="submitButton submitButton-js" onclick="submit()">
+            SUBMIT
+          </button>
         </div>
       </div>
     </div>
+
+    <script src="JS/main.js"></script>
   </body>
 </html>
