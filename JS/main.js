@@ -1,4 +1,5 @@
 let grade = 0;
+//Kroz switch dobijem koja je ocena izabrana, grade mora da bude globalna varijabla da bih joj pristupio u drugoj funkciji
 function rating(scale) {
   switch (scale) {
     case 1:
@@ -18,7 +19,8 @@ function rating(scale) {
       break;
   }
 }
-
+/* Ovako sa DOM povezujes HTML i Java script, kad se klikne, u varijablu html se skaldiste html elementi sa novim klasama koje se posle stilizuju u CSSU.
+  Na kraju samo sa query selector koji selektuje sa klasom div u htmlu se izbace novi elementi prakticno iz varijable*/
 function submit() {
   let html = `
     <div class="main-js">
