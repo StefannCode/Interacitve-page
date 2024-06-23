@@ -1,6 +1,5 @@
 let grade = 0;
-let isClicked = false;
-function rating(event, scale) {
+function rating(scale) {
   switch (scale) {
     case 1:
       grade = 1;
