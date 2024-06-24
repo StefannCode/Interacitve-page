@@ -12,8 +12,7 @@ p {
   color: white;
 }
 
-.main,
-.main-js {
+.main {
   width: 412px;
   height: 416px;
   background-color: #181e27;
@@ -125,13 +124,14 @@ p {
   transition: background-color 0.3s;
 }
 
+.buttonelement.active {
+  background-color: white;
+  color: black;
+}
+
 .buttonelement:hover {
   background-color: #fc7614;
   color: #262e38;
-}
-
-.buttonelement:active {
-  background-color: white;
 }
 
 .rating-count {
