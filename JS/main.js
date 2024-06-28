@@ -6,27 +6,34 @@ let isClicked = false;
     `.buttonelement:nth-child(${scale})`
   );*/
 
-const clickedButton = document.querySelectorAll(".buttonelement");
-clickedButton.forEach((button) => {
+const clickedButtons = document.querySelectorAll(".buttonelement");
+
+clickedButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const buttonClicked = button.dataset.ratingButton;
-    console.log(button);
 
     if (selectedButton === button) {
-      selectedButton.classList.remove("active");
-      selectedButton = null;
-      grade = 0;
-      isClicked = false;
+      // Ako je isto dugme ponovo kliknuto, toggle 'active' klasu
+      button.classList.toggle("active");
+      if (!button.classList.contains("active")) {
+        // Ako je uklonjena 'active' klasa
+        grade = 0;
+        isClicked = false;
+      } else {
+        // Ako je dodata 'active' klasa
+        grade = buttonClicked;
+        isClicked = true;
+      }
     } else {
+      // Ako nije isto dugme, ukloni 'active' sa prethodnog i dodaj na trenutni
+      if (selectedButton) {
+        selectedButton.classList.remove("active");
+      }
       button.classList.add("active");
+      selectedButton = button;
+      grade = buttonClicked;
+      isClicked = true;
     }
-    if (selectedButton) {
-      selectedButton.classList.remove("active");
-    }
-
-    selectedButton = button;
-    grade = buttonClicked;
-    isClicked = true;
   });
 });
 
@@ -63,7 +70,7 @@ clickedButton.forEach((button) => {
   isClicked = true;
 }*/
 
-function isChecked() {
+/*function isChecked() {
   if (!isClicked) {
     alert("You must select rating number");
     return false;
@@ -74,6 +81,15 @@ function isChecked() {
 
 function submit() {
   if (!isChecked()) {
+    return;
+  }*/
+function isChecked() {
+  return isClicked; // Proverava da li je izabrana ocena
+}
+
+function submit() {
+  if (!isChecked()) {
+    alert("Morate izabrati ocenu.");
     return;
   }
 
