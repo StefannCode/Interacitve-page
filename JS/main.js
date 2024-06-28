@@ -83,11 +83,36 @@ function submit() {
   if (!isChecked()) {
     return;
   }*/
-function isChecked() {
+/*function isChecked() {
   return isClicked; // Proverava da li je izabrana ocena
-}
+}*/
 
-function submit() {
+const submitBtn = document.querySelector(".submitButton-js");
+submitBtn.addEventListener("click", () => {
+  if (!isClicked) {
+    alert("Morate izabrati ocenu.");
+  } else {
+    let html = `
+    
+      
+    <div class="divforImage-js">
+      <img src="Images/onlinepayment.png" alt="" />
+    </div>
+    <div class="forTextRatingNumbers">You selected ${grade} out of 5.</div>
+    <div class="fortext1-js"><p class="text1-js">Thank you! </p></div>
+    <div class="fortext2-js">
+      <p class="text2-js">
+        We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!
+      </p>
+    </div>
+  
+`;
+
+    document.querySelector(".main").innerHTML = html;
+  }
+});
+
+/*function submit() {
   if (!isChecked()) {
     alert("Morate izabrati ocenu.");
     return;
@@ -110,4 +135,4 @@ function submit() {
     `;
 
   document.querySelector(".main").innerHTML = html;
-}
+}*/
