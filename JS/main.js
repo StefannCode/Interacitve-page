@@ -2,45 +2,66 @@ let grade = 0;
 let selectedButton = null;
 let isClicked = false;
 
-//Kroz switch dobijem koja je ocena izabrana, grade mora da bude globalna varijabla da bih joj pristupio u drugoj funkciji
-function rating(scale) {
-  const clickedButton = document.querySelector(
+/*const clickedButton = document.querySelector(
     `.buttonelement:nth-child(${scale})`
-  );
+  );*/
 
-  if (selectedButton === clickedButton) {
-    selectedButton.classList.remove("active");
-    selectedButton = null;
-    grade = 0;
-    isClicked = false;
-  } else {
-    switch (scale) {
-      case 1:
-        grade = 1;
-        break;
-      case 2:
-        grade = 2;
-        break;
-      case 3:
-        grade = 3;
-        break;
-      case 4:
-        grade = 4;
-        break;
-      case 5:
-        grade = 5;
-        break;
+const clickedButton = document.querySelectorAll(".buttonelement");
+clickedButton.forEach((button) => {
+  button.addEventListener("click", () => {
+    const buttonClicked = button.dataset.ratingButton;
+    console.log(button);
+
+    if (selectedButton === button) {
+      selectedButton.classList.remove("active");
+      selectedButton = null;
+      grade = 0;
+      isClicked = false;
+    } else {
+      button.classList.add("active");
     }
-
     if (selectedButton) {
       selectedButton.classList.remove("active");
     }
 
-    selectedButton = clickedButton;
-    selectedButton.classList.add("active");
+    selectedButton = button;
+    grade = buttonClicked;
     isClicked = true;
+  });
+});
+
+/*if (selectedButton === clickedButton) {
+  selectedButton.classList.remove("active");
+  selectedButton = null;
+  grade = 0;
+  isClicked = false;
+} else {
+  switch (scale) {
+    case 1:
+      grade = 1;
+      break;
+    case 2:
+      grade = 2;
+      break;
+    case 3:
+      grade = 3;
+      break;
+    case 4:
+      grade = 4;
+      break;
+    case 5:
+      grade = 5;
+      break;
   }
-}
+
+  if (selectedButton) {
+    selectedButton.classList.remove("active");
+  }
+
+  selectedButton = clickedButton;
+  selectedButton.classList.add("active");
+  isClicked = true;
+}*/
 
 function isChecked() {
   if (!isClicked) {
@@ -51,8 +72,6 @@ function isChecked() {
   }
 }
 
-/* Ovako sa DOM povezujes HTML i Java script, kad se klikne, u varijablu html se skaldiste html elementi sa novim klasama koje se posle stilizuju u CSSU.
-  Na kraju samo sa query selector koji selektuje sa klasom div u htmlu se izbace novi elementi prakticno iz varijable*/
 function submit() {
   if (!isChecked()) {
     return;
